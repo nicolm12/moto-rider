@@ -1,0 +1,9 @@
+<section class="hero" [ngStyle]="{'background-image':'url(' + background + ')'}">
+  <div class="overlay container py-5">
+    <h1 class="display-4">{{ title }}</h1>
+    <p class="lead">{{ subtitle }}</p>
+    <div *ngIf="buttonText">
+      <a class="btn btn-light">{{ buttonText }}</a>
+    </div>
+  </div>
+</section>

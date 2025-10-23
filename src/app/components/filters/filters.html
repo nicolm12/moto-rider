@@ -1,0 +1,27 @@
+<section class="container my-4">
+  <div class="row g-3">
+    <div class="col-md-3">
+      <select class="form-select">
+        <option>Dificultades</option>
+        <option *ngFor="let d of difficulties">{{ d }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option>Distancia</option>
+        <option *ngFor="let d of distances">{{ d }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option>Tipos</option>
+        <option *ngFor="let t of types; trackBy: trackByType" [value]="t">{{ t }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option>Fechas de salida</option>
+      </select>
+    </div>
+  </div>
+</section>
