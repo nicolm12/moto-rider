@@ -21,5 +21,5 @@ export class HeroSectionComponent {
   @Input() title = '';
   @Input() subtitle = '';
   @Input() buttonText = '';
-  @Input() background = 'assets/hero-default.jpg';
+  @Input() background = 'assets/accesorios.png';
 }

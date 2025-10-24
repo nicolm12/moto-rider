@@ -1,0 +1,28 @@
+.hero {
+  margin-top: 20vh;
+  width: 100%;
+  min-height: 500px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  text-align: center;
+}
+.cont{
+  display: flex;
+  flex-direction: column;
+}
+.cont h1{
+  font-weight: bold;
+}
+.cont p{
+  font-weight: bold;
+  font-size: 36px;
+}
+.btn{
+  font-size: 28px;
+}

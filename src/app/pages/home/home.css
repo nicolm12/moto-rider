@@ -1,0 +1,45 @@
+.hero {
+  width: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.route{
+  width: 100%;
+  min-height: 500px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column; /* Apila el texto y el botón verticalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+    color: white; /* Para que el texto sea visible */
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero a {
+  font-size: 28px;
+  margin-bottom: 2rem;
+}
+
+.hero .btn-primary {
+  background-color: #ff6600;
+  border: none;
+}
+
+.hero .btn-primary:hover {
+  background-color: #e65c00;
+}

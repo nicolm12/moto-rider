@@ -1,0 +1,36 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  z-index: 1000; /* asegura que quede sobre el contenido */
+  background-color: #07031C!important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-link {
+  color: #f8f9fa !important;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  font-size:16px ;
+}
+
+.nav-link:hover {
+  color: #F20530 !important;
+}
+.navbar-brand img{
+  width: 90%;
+}
+/* Ajusta el contenido de la página para no quedar oculto debajo del header */
+body,
+:host ::ng-deep body {
+  padding-top: 70px; /* altura aproximada del header */
+}

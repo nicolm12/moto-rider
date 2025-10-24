@@ -13,9 +13,9 @@ import { CommonModule } from '@angular/common'; // ⬅️ ¡Necesario para *ngFo
 })
 export class AccessoriesComponent {
   items = [
-    { title: 'Maletas', img: 'assets/access1.jpg' },
-    { title: 'Chaquetas', img: 'assets/access2.jpg' },
-    { title: 'Botas', img: 'assets/access3.jpg' },
-    { title: 'Cascos', img: 'assets/access4.jpg' }
+    { title: 'Maletas', img: 'assets/maleta.png' },
+    { title: 'Chaquetas', img: 'assets/chaqueta.png' },
+    { title: 'Botas', img: 'assets/botas.png' },
+    { title: 'Cascos', img: 'assets/cascos.png' }
   ];
 }
