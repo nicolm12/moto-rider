@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Tus variables y estilos globales */
+:root{
+  --dark-bg: #0f0b1a;
+  --card-bg: rgba(12,8,30,0.95);
+}
+body{
+  background: var(--dark-bg);
+  color:#fff;
+  font-family: Arial, sans-serif;
+}

@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <button class="btn btn-primary" (click)="goToHome()">← Volver al Menú Principal</button>
+    <h2 class="mb-0">Rutas disponibles</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let route of routes">
+      <div class="card shadow-sm h-100">
+        <img [src]="route.image" class="card-img-top" alt="{{ route.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ route.name }}</h5>
+          <p class="card-text">{{ route.description }}</p>
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item"><strong>Distancia:</strong> {{ route.distance }} km</li>
+            <li class="list-group-item"><strong>Duración:</strong> {{ route.duration }}</li>
+            <li class="list-group-item"><strong>Dificultad:</strong> {{ route.difficulty }}</li>
+            <li class="list-group-item"><strong>Participantes:</strong> {{ route.riders }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
