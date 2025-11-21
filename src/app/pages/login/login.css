@@ -1,0 +1,41 @@
+
+
+body {
+  background: #0d0d2b !important;
+}
+/* Caja del login */
+.login-box {
+  background-color: #F7F9FC;       /* suave gris-azulado, NO blanco */
+  border-radius: 12px;
+  width: 350px;
+}
+
+/* Título */
+.login-title {
+  color: #07031C; /* o el color que quieras */
+}
+
+/* Inputs: borde visible y fondo distinto */
+.login-input {
+  background-color: #ffffff;
+  border: 2px solid #CED4DA;
+  border-radius: 8px;
+}
+
+.login-input:focus {
+  border-color: #2B57D9;
+  box-shadow: 0 0 4px rgba(43, 87, 217, 0.4);
+}
+
+/* Botón azul */
+.login-btn {
+  background-color: #2B57D9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.login-btn:hover {
+  background-color: #2449b0;
+}

@@ -13,7 +13,8 @@ export class RouteService {
       duration: '4h 30m',
       difficulty: 'Intermedio',
       riders: 24,
-      image: 'assets/ruta1.jpg'
+      image: 'assets/ruta1.jpg',
+      rating: 4.5
     },
     {
       name: 'Villa de Leyva',
@@ -22,7 +23,8 @@ export class RouteService {
       duration: '3h 30m',
       difficulty: 'Difícil',
       riders: 12,
-      image: 'assets/ruta2.jpg'
+      image: 'assets/ruta2.jpg',
+      rating: 4.7
     }
   ];
 

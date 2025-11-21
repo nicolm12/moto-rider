@@ -1,0 +1,50 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <div class="p-2" routerLink="/"><img src="assets/logo.svg"></div>
+  <div class="login-box p-4 shadow-lg">
+
+    <h3 class="text-center mb-4 login-title">Iniciar Sesión</h3>
+
+    <form (ngSubmit)="submit()">
+
+      <div class="mb-3">
+        <label class="login-title">Email</label>
+<input
+  #emailInput="ngModel"
+  type="email"
+  class="form-control login-input"
+  [(ngModel)]="email"
+  name="email"
+  required
+  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+>
+ @if (email && emailInput.invalid && emailInput.touched) {<div  class="text-danger small">
+  El correo no tiene un formato válido.
+</div>}
+@if (!email) {
+  <div  class="text-danger small">
+  Debe ingresar un correo electrónico.
+</div>
+}
+      </div>
+
+      <div class="mb-3">
+        <label class="login-title">Contraseña</label>
+        <input type="password" class="form-control login-input" [(ngModel)]="password" name="password" required>
+        @if (!password) {
+  <div  class="text-danger small">
+  Debe ingresar una contraseña.
+</div>
+}
+      </div>
+
+      @if (error) {
+        <div class="alert alert-danger py-2">
+          {{ error }}
+        </div>
+      }
+
+      <button class="btn login-btn w-100">Ingresar</button>
+
+    </form>
+  </div>
+</div>

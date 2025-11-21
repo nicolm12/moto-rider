@@ -1,28 +1,151 @@
-<div class="container mt-4">
-<<<<<<< HEAD
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <button class="btn btn-primary" (click)="goToHome()">← Volver al Menú Principal</button>
-    <h2 class="mb-0">Rutas disponibles</h2>
+ <section class="hero">
+  <div class="route"
+  style="background-image:url('assets/rutasEpicas.png');
+        ">
+    <div>
+      <h2>TU AVENTURA COMIENZA AQUÍ</h2>
+      <p class="lead mt-6 pt-2 px-4">Aventuras sobre dos ruedas que no olvidarás</p>
+    </div>
   </div>
-=======
-  <h2 class="text-center mb-4">Rutas disponibles</h2>
->>>>>>> 9e16658d8d8c61f7d22efa777bc320bc3a64ea7b
+</section>
+<div class="container">
 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let route of routes">
-      <div class="card shadow-sm h-100">
-        <img [src]="route.image" class="card-img-top" alt="{{ route.name }}">
+
+    <!-- RUTA PRINCIPAL -->
+    <div class="col-md-7">
+  <div class="card shadow-lg ruta-principal"
+        style="background-image:url('assets/Rectangle 10.png')">
+
+      <div class="card-body overlay body-principal">
+        <div class="header-card"><h4 class="card-title">{{ rutas[0].nombre }}</h4>
+        <p><i class="bi bi-star"></i>{{ rutas[0].puntuacion }}</p></div>
+
+        <p>{{ rutas[0].descripcion }}</p>
+        <button class="btn btn-primary w-100" (click)="abrirModal()">Unirse</button>
+      </div>
+
+  </div>
+</div>
+
+
+    <!-- LISTA DE RUTAS LATERALES -->
+    <div class="col-md-5">
+
+      <div *ngFor="let r of rutas.slice(1)" class="card mb-3 pointer shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">{{ route.name }}</h5>
-          <p class="card-text">{{ route.description }}</p>
-          <ul class="list-group list-group-flush small">
-            <li class="list-group-item"><strong>Distancia:</strong> {{ route.distance }} km</li>
-            <li class="list-group-item"><strong>Duración:</strong> {{ route.duration }}</li>
-            <li class="list-group-item"><strong>Dificultad:</strong> {{ route.difficulty }}</li>
-            <li class="list-group-item"><strong>Participantes:</strong> {{ route.riders }}</li>
-          </ul>
+          <div class="header-card"><h5>{{ r.nombre }}</h5> <p><i class="bi bi-star"></i>{{ r.puntuacion }}</p></div>
+          <p class="small">{{ r.descripcion }}</p>
+          <button class="btn btn-primary btn-sm" (click)="abrirModal(); $event.stopPropagation()">Unirse</button>
         </div>
       </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="modalUnirse" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form (ngSubmit)="enviar()" #formUnirse="ngForm">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Unirse a la ruta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- NOMBRE -->
+          <div class="mb-3">
+            <label>Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              name="nombre"
+              required
+              pattern="^[a-zA-ZÀ-ÿ\s]{3,40}$"
+              [(ngModel)]="formData.nombre"
+              #nombre="ngModel"
+            >
+
+            <!-- Errores -->
+            <div class="text-danger small" *ngIf="nombre.invalid && nombre.touched">
+              <div *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</div>
+              <div *ngIf="nombre.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+            </div>
+
+          </div>
+
+          <!-- TELÉFONO -->
+          <div class="mb-3">
+            <label>Teléfono</label>
+            <input
+              type="text"
+              class="form-control"
+              name="telefono"
+              required
+              minlength="7"
+              maxlength="10"
+              pattern="^[0-9]+$"
+              [(ngModel)]="formData.telefono"
+              #telefono="ngModel"
+            >
+
+            <!-- Errores -->
+            <div class="text-danger small" *ngIf="telefono.invalid && telefono.touched">
+              <div *ngIf="telefono.errors?.['required']">El teléfono es obligatorio.</div>
+              <div *ngIf="telefono.errors?.['minlength']">Debe tener mínimo 7 dígitos.</div>
+              <div *ngIf="telefono.errors?.['maxlength']">Máximo 10 dígitos permitidos.</div>
+              <div *ngIf="telefono.errors?.['pattern']">Solo números permitidos.</div>
+            </div>
+
+          </div>
+
+          <!-- CORREO -->
+          <div class="mb-3">
+            <label>Correo</label>
+            <input
+              type="email"
+              class="form-control"
+              name="correo"
+              required
+              email
+              [(ngModel)]="formData.correo"
+              #correo="ngModel"
+            >
+
+            <div class="text-danger small" *ngIf="correo.invalid && correo.touched">
+              <div *ngIf="correo.errors?.['required']">El correo es obligatorio.</div>
+              <div *ngIf="correo.errors?.['email']">Ingrese un correo válido.</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit" [disabled]="formUnirse.invalid">Enviar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ########### TOAST BOOTSTRAP ################ -->
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toastExito" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">Datos enviados con éxito. Te estaremos contactando pronto.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
 </div>

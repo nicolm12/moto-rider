@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Casco AGV K1",
+    "description": "El AGV K1 es un casco integral pensado para quienes buscan una buena combinación entre diseño deportivo y seguridad.",
+    "price": 300000,
+    "image": "assets/cascoAVG.png",
+    "category": "cascos",
+    "brand": "AGV",
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "name": "Alpinestars GP Pro",
+    "description": "Los guantes Alpinestars GP Pro (modelos R3 y R4) son guantes deportivos tipo racing de alta gama, diseñados tanto para pista como para conducción deportiva en carretera.",
+    "price": 400000,
+    "image": "assets/gauntes.png",
+    "category": "guantes",
+    "brand": "Alpinestars",
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "name": "Chaqueta Dainese",
+    "description": "Las chaquetas Dainese representan lo mejor en cuanto a seguridad, estilo y tecnología para motociclistas.",
+    "price": 500000,
+    "image": "assets/chaqueta (2).png",
+    "category": "chaquetas",
+    "brand": "Dainese",
+    "favorite": false
+  },
+  {
+    "id": 4,
+    "name": "Botas TCX",
+    "description": "Las botas TCX son reconocidas por ofrecer un excelente equilibrio entre protección, comodidad y estilo.",
+    "price": 700000,
+    "image": "assets/botastsx.png",
+    "category": "botas",
+    "brand": "TCX",
+    "favorite": false
+  }
+]

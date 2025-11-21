@@ -1,0 +1,60 @@
+
+.container{
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.hero {
+  width: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.route{
+  width: 100%;
+  min-height: 500px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column; /* Apila el texto y el botón verticalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+    color: white; /* Para que el texto sea visible */
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.ruta-principal{
+  height: 100%;
+display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+.card{
+  background-color: #10044F;
+  border-color: #2964D9;
+  border-width: 2px;
+  color: white;
+}
+.header-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bi-star{
+  color: #2964D9;
+  margin-right: 5px;
+  width: 30px;
+}

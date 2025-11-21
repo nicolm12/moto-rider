@@ -1,0 +1,67 @@
+.accessory-card {
+  background: #0a0a2a;
+  color: white;
+  border-radius: 10px;
+}
+.heart-red {
+  color: #ff2d55 !important;
+}
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  padding: 5%;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  border: none;
+  background: rgba(8, 13, 33, 0.49);
+  border-radius: 50%;
+  padding: 8px;
+  color: white;
+  width: 50px;
+  height: 50px;
+}
+.favorite-btn:hover {
+  background: rgba(241, 59, 75, 0.8); /* más oscuro al pasar el mouse */
+  transform: scale(1.1); /* crece un poco */
+}
+.favorite-btn i {
+  font-size: 20px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+.card-price{
+  display: flex;
+flex-direction: row;
+gap: 30%;
+padding: 5px;
+}
+.price{
+  font-size: 25px;
+  font-weight: bold;
+}
+.btn-success {
+  background-color: #2B57D9 !important;
+  border: none;
+}
+.bi-cart{
+  font-size: 25px;
+  font-weight: bold;
+}

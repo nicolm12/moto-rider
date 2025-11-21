@@ -1,0 +1,17 @@
+<section class="container">
+
+  <h2 class="text-white mb-4">ACCESORIOS</h2>
+
+  <!-- filtros -->
+  <app-accessories-filters
+    (categoryChange)="filterByCategory($event)">
+  </app-accessories-filters>
+
+  <!-- grid de cards -->
+  <div class="row mt-4">
+    <div class="col-md-4 mb-4" *ngFor="let item of filteredAccessories">
+      <app-accessory-card [item]="item"></app-accessory-card>
+    </div>
+  </div>
+
+</section>

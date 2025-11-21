@@ -3,7 +3,7 @@
     <h1 class="display-4">{{ title }}</h1>
     <p class="lead">{{ subtitle }}</p>
     <div *ngIf="buttonText">
-      <a class="btn btn-light">{{ buttonText }}</a>
+      <a class="btn btn-light" [routerLink]="link">{{ buttonText }}</a>
   </div>
   </div>
 </section>

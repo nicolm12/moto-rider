@@ -1,10 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-4">
-  <a class="navbar-brand fw-bold text-warning p-2" routerLink="/"><img src="assets/logo.svg"></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand fw-bold text-warning p-2" routerLink="/home">
+    <img src="assets/logo.svg">
+  </a>
 
-  <div class="nav">
-    <ul class="navbar-nav ms-auto">
+  <!-- BOTÓN HAMBURGUESA -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainNav">
+
+    <!-- MENÚ CENTRADO -->
+    <ul class="navbar-nav mx-auto text-center">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/">INICIO</a>
+        <a class="nav-link" routerLink="/home">INICIO</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/accessories">ACCESORIOS</a>
@@ -12,16 +21,29 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/routes">RUTAS</a>
       </li>
+
+      <!-- MOBILE ITEMS -->
+      <li class="nav-item d-lg-none">
+        <a class="nav-link" routerLink="/cart">VER CARRITO</a>
+      </li>
+
+      <li class="nav-item d-lg-none">
+        <a class="nav-link" routerLink="/favorites">ME GUSTAS</a>
+      </li>
     </ul>
-  </div>
-  <div class="nav" id="">
 
-      <a class="nav-link"> <i class="bi bi-search"></i></a>
-
-      <a class="nav-link" routerLink="/routes"> <i class="bi bi-cart"></i></a>
-
-
-      <a class="nav-link" routerLink="/routes"> <i class="bi bi-heart-fill"></i></a>
+    <!-- ICONOS SOLO ESCRITORIO -->
+    <div class="d-none d-lg-flex align-items-center icons-area">
+      <a class="nav-link">
+        <i class="bi bi-search"></i>
+      </a>
+      <a class="nav-link" routerLink="/cart">
+        <i class="bi bi-cart"></i>
+      </a>
+      <a class="nav-link" routerLink="/favorites">
+        <i class="bi bi-heart-fill"></i>
+      </a>
+    </div>
 
   </div>
 </nav>

@@ -6,4 +6,5 @@ export interface RouteModel {
   difficulty: string;
   riders: number;
   image: string;
+  rating: number;
 }

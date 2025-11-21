@@ -1,0 +1,13 @@
+<div class="filters">
+
+  <h6 class="text-muted">Categorías</h6>
+
+  <div class="btn-group mb-4">
+    <button *ngFor="let c of categories"
+      class="btn btn-outline-light"
+      (click)="selectCategory(c.id)">
+      {{ c.label }}
+    </button>
+  </div>
+
+</div>

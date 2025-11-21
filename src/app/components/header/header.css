@@ -3,34 +3,64 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 20vh;
-  z-index: 1000; /* asegura que quede sobre el contenido */
-  background-color: #07031C!important;
+  height: 20%;
+  background-color: #07031C !important;
+  z-index: 1000;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  cursor: pointer;
+/* Logo */
+.navbar-brand{
+  margin-top: 3%;
+}
+.navbar-brand img {
+  width: 80%;
+}
+
+/* Centrar los links */
+.navbar-nav {
+  gap: 25px;
+}
+
+/* Íconos escritorio */
+.icons-area{
+   gap: 10px;
+}
+.icons-area i {
+  font-size: 1.3rem;
+
 }
 
 .nav-link {
   color: #f8f9fa !important;
-  transition: color 0.3s ease;
   font-weight: bold;
-  font-size:16px ;
+  font-size: 16px;
 }
 
 .nav-link:hover {
   color: #F20530 !important;
 }
-.navbar-brand img{
-  width: 90%;
+
+/* HAMBURGUESA */
+.navbar-toggler {
+  border-color: white;
 }
-/* Ajusta el contenido de la página para no quedar oculto debajo del header */
-body,
-:host ::ng-deep body {
-  padding-top: 70px; /* altura aproximada del header */
+
+/* Ajustes móvil */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .icons-area {
+    display: none !important;
+  }
 }

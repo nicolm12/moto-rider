@@ -1,0 +1,93 @@
+<div class="container text-white">
+
+  <h2 class="mb-4">CARRITO DE COMPRAS</h2>
+
+  <div class="row">
+
+    <!-- LISTA DE PRODUCTOS -->
+    <div class="col-md-6">
+@if (!items || items.length === 0) {
+  <div class="no-product">
+    <div class="nothing">
+      <i class="bi bi-cart fs-1" ></i>
+  <p>¡No haz agregado productos!</p>
+</div>
+<a class="btn btn-outline-light" routerLink="/accessories">Agrega productos</a>
+</div>
+
+}
+      @for (item of items; track item) {
+        <div class="card mb-3 p-2 bg-dark border-light">
+          <div class="row">
+
+            <div class="col-4">
+              <img [src]="item.imagen" class="img-fluid rounded">
+            </div>
+
+            <div class="col-8 conten">
+
+              <h5>{{ item.nombre }}</h5>
+
+              <p class="mb-0">
+                <strong>Precio:</strong>
+                $ {{ item.precio | number:'1.0-0' }} COP
+              </p>
+
+              <!-- Mostrar talla y color si existen -->
+              @if (item.talla) {
+                <p class="mb-0"><strong>Talla:</strong> {{ item.talla }}</p>
+              }
+
+              @if (item.color) {
+                <p class="mb-2"><strong>Color:</strong> {{ item.color }}</p>
+              }
+
+              <div class="d-flex align-items-center">
+                <button class="btn btn-outline-light" (click)="decrease(item)">-</button>
+
+                <span class="mx-3">{{ item.cantidad }}</span>
+
+                <button class="btn btn-outline-light" (click)="increase(item)">+</button>
+
+                <button class="btn btn-danger ms-auto" (click)="removeItem(item)">
+                  Eliminar
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="col-md-6">
+      <div class="card bg-dark text-light p-3">
+
+        <h5>RESUMEN DEL PEDIDO</h5>
+
+        <div class="d-flex justify-content-between mt-3">
+          <span>Subtotal</span>
+          <strong>$ {{ total | number:'1.0-0' }} COP</strong>
+        </div>
+
+        <div class="d-flex justify-content-between mt-2">
+          <span>Envío</span>
+          <strong>$ 15.000 COP</strong>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between">
+          <span>TOTAL</span>
+          <strong>$ {{ total + 15000 | number:'1.0-0' }} COP</strong>
+        </div>
+
+        <button class="btn btn-primary w-100 mt-3">REALIZAR PAGO</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
