@@ -1,50 +1,72 @@
 <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
-  <div class="p-2" routerLink="/"><img src="assets/logo.svg"></div>
+
+  <div class="p-2">
+    <img src="assets/logo.svg">
+  </div>
+
   <div class="login-box p-4 shadow-lg">
 
     <h3 class="text-center mb-4 login-title">Iniciar Sesión</h3>
 
-    <form (ngSubmit)="submit()">
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" novalidate>
 
+      <!-- EMAIL -->
       <div class="mb-3">
         <label class="login-title">Email</label>
-<input
-  #emailInput="ngModel"
-  type="email"
-  class="form-control login-input"
-  [(ngModel)]="email"
-  name="email"
-  required
-  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
->
- @if (email && emailInput.invalid && emailInput.touched) {<div  class="text-danger small">
-  El correo no tiene un formato válido.
-</div>}
-@if (!email) {
-  <div  class="text-danger small">
-  Debe ingresar un correo electrónico.
-</div>
-}
+
+        <input
+          type="email"
+          class="form-control login-input"
+          name="email"
+          required
+          email
+          [(ngModel)]="email"
+          #emailInput="ngModel"
+        >
+
+        <!-- ERRORES EMAIL -->
+        <div class="text-danger small" *ngIf="emailInput.invalid && emailInput.touched">
+          <span *ngIf="emailInput.errors?.['required']">Debe ingresar un correo.</span>
+          <span *ngIf="emailInput.errors?.['email']">Formato de correo inválido.</span>
+        </div>
       </div>
 
+      <!-- PASSWORD -->
       <div class="mb-3">
         <label class="login-title">Contraseña</label>
-        <input type="password" class="form-control login-input" [(ngModel)]="password" name="password" required>
-        @if (!password) {
-  <div  class="text-danger small">
-  Debe ingresar una contraseña.
-</div>
-}
+
+        <div class="input-group">
+          <input
+            [type]="showPass ? 'text':'password'"
+            class="form-control login-input"
+            required
+            name="password"
+            [(ngModel)]="password"
+            #passwordInput="ngModel"
+          >
+
+          <button type="button" class="btn btn-outline-secondary" (click)="togglePass()">
+            {{ showPass ? 'Ocultar' : 'Ver' }}
+          </button>
+        </div>
+
+        <div class="text-danger small" *ngIf="passwordInput.invalid && passwordInput.touched">
+          Debe ingresar una contraseña.
+        </div>
       </div>
 
-      @if (error) {
-        <div class="alert alert-danger py-2">
-          {{ error }}
-        </div>
-      }
+      <!-- ERROR LOGIN -->
+      <div class="alert alert-danger py-2" *ngIf="error">
+        {{ error }}
+      </div>
 
-      <button class="btn login-btn w-100">Ingresar</button>
+      <!-- BOTÓN -->
+      <button class="btn login-btn w-100" [disabled]="loginForm.invalid || loading">
+        <span *ngIf="!loading">Ingresar</span>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+      </button>
 
     </form>
   </div>
 </div>
+

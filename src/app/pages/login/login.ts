@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth';
+
 @Component({
   standalone: true,
   selector: 'app-login',
@@ -11,20 +12,39 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule]
 })
 export class LoginComponent {
+
   email = '';
   password = '';
   error = '';
+  loading = false;
+  showPass = false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  submit() {
-    const ok = this.auth.login(this.email, this.password);
+  togglePass() {
+    this.showPass = !this.showPass;
+  }
 
-    if (!ok) {
-      this.error = "Credenciales incorrectas";
+  submit(form: any) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
       return;
     }
 
-    this.router.navigate(['/home']);
+    this.loading = true;
+    this.error = '';
+
+    setTimeout(() => {
+      const ok = this.auth.login(this.email, this.password);
+
+      if (!ok) {
+        this.error = 'Credenciales incorrectas';
+        this.loading = false;
+        return;
+      }
+
+      this.router.navigate(['/home']);
+    }, 700);
   }
+
 }

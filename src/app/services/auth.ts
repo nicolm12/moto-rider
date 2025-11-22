@@ -7,14 +7,18 @@ export class AuthService {
 
   private USER_KEY = 'urban_user';
 
-  constructor() {}
-
   login(email: string, password: string): boolean {
-    // Login ficticio, en un proyecto real lo validarías con backend
-    if (email === 'admin@correo.com' && password === '123456') {
+    // Usuario "creado" para login local
+    const allowedUser = {
+      email: 'admin@correo.com',
+      password: '123456'
+    };
+
+    if (email === allowedUser.email && password === allowedUser.password) {
       localStorage.setItem(this.USER_KEY, JSON.stringify({ email }));
       return true;
     }
+
     return false;
   }
 

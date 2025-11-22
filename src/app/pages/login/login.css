@@ -1,21 +1,38 @@
-
-
+/* Fondo general */
 body {
   background: #0d0d2b !important;
 }
-/* Caja del login */
+
+/* Caja principal */
 .login-box {
-  background-color: #F7F9FC;       /* suave gris-azulado, NO blanco */
+  background-color: #F7F9FC;
   border-radius: 12px;
-  width: 350px;
+  width: 380px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+/* Responsive: pantallas pequeñas */
+@media (max-width: 480px) {
+  .login-box {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+/* Responsive: pantallas medianas */
+@media (max-width: 768px) {
+  .login-box {
+    width: 75%;
+  }
 }
 
 /* Título */
 .login-title {
-  color: #07031C; /* o el color que quieras */
+  color: #07031C;
 }
 
-/* Inputs: borde visible y fondo distinto */
+/* Inputs */
 .login-input {
   background-color: #ffffff;
   border: 2px solid #CED4DA;
@@ -24,18 +41,25 @@ body {
 
 .login-input:focus {
   border-color: #2B57D9;
-  box-shadow: 0 0 4px rgba(43, 87, 217, 0.4);
+  box-shadow: 0 0 6px rgba(43, 87, 217, 0.35);
 }
 
-/* Botón azul */
+/* Botón */
 .login-btn {
-  background-color: #2B57D9;
+  background: #0066ff;
   color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px;
+  transition: background 0.2s;
 }
 
 .login-btn:hover {
-  background-color: #2449b0;
+  background-color: #0b34a4;
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
